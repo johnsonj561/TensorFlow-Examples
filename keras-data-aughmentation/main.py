@@ -1,4 +1,4 @@
-import matplotlib.pyplot as pyt
+import matplotlib.pyplot as plt
 import numpy as np
 from scipy import misc, ndimage
 import keras
@@ -8,8 +8,8 @@ def plots(ims, figsize=(12,6), rows=1, interp=False, titles=None):
     if type(ims[0]) is np.ndarray:
         ims = np.array(ims).astype(np.uint8)
         if (ims.shape[-1] != 3):
-            ims = ims.transpose((o, 2, 3, 1))
-    f = plot.figure(figsize=figsize)
+            ims = ims.transpose((0, 2, 3, 1))
+    f = plt.figure(figsize=figsize)
     cols = len(ims)//rows if len(ims) % 2 == 0 else len(ims) // rows + 1
     for i in range(len(ims)):
         sp = f.add_subplot(rows, cols, i+1)
